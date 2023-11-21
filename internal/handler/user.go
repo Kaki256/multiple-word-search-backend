@@ -2,8 +2,9 @@ package handler
 
 import (
 	"fmt"
-	"go-backend-template/internal/repository"
 	"net/http"
+
+	"github.com/Kaki256/multiple-word-search-backend/internal/repository"
 
 	vd "github.com/go-ozzo/ozzo-validation"
 	"github.com/go-ozzo/ozzo-validation/is"

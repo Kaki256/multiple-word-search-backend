@@ -2,8 +2,9 @@ package integration
 
 import (
 	"encoding/json"
-	"go-backend-template/internal/handler"
 	"testing"
+
+	"github.com/Kaki256/multiple-word-search-backend/internal/handler"
 
 	"github.com/google/uuid"
 )

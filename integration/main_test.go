@@ -1,14 +1,15 @@
 package integration
 
 import (
-	"go-backend-template/internal/handler"
-	"go-backend-template/internal/migration"
-	"go-backend-template/internal/pkg/config"
-	"go-backend-template/internal/repository"
 	"log"
 	"net/http/httptest"
 	"strings"
 	"testing"
+
+	"github.com/Kaki256/multiple-word-search-backend/internal/handler"
+	"github.com/Kaki256/multiple-word-search-backend/internal/migration"
+	"github.com/Kaki256/multiple-word-search-backend/internal/pkg/config"
+	"github.com/Kaki256/multiple-word-search-backend/internal/repository"
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/uuid"

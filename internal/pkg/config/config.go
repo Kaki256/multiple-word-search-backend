@@ -17,7 +17,7 @@ func getEnv(key, defaultValue string) string {
 }
 
 func AppAddr() string {
-	return getEnv("APP_ADDR", ":8080")
+	return getEnv("APP_ADDR", ":3000")
 }
 
 func MySQL() *mysql.Config {

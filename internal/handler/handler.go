@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"go-backend-template/internal/repository"
+	"github.com/Kaki256/multiple-word-search-backend/internal/repository"
 
 	"github.com/labstack/echo/v4"
 )
