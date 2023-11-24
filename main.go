@@ -59,7 +59,7 @@ func main() {
 		return c.String(http.StatusOK, "pong\n")
 	})
 
-	e.POST("/search/:dict", wordSearchRegExHandler)
+	e.GET("/search/:dict", wordSearchRegExHandler)
 
 	// connect to database
 	db, err := sqlx.Connect("mysql", config.MySQL().FormatDSN())
@@ -86,14 +86,10 @@ func main() {
 
 func wordSearchRegExHandler(c echo.Context) error {
 	dictionaryName := c.Param("dict")
-	var searchKey string
-	err := c.Bind(searchKey)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, fmt.Sprintf("%+v", err))
-	}
+	searchKey := c.QueryParam("strRegEx")
 
 	var dict []Word
-	err = db.Get(&dict, "SELECT * FROM words WHERE dictionary = ", dictionaryName)
+	err := db.Get(&dict, "SELECT * FROM words WHERE dictionary = ", dictionaryName)
 	if errors.Is(err, sql.ErrNoRows) {
 		log.Printf("no such dictionary name = '%s'\n", dictionaryName)
 	}
