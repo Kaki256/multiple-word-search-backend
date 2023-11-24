@@ -89,7 +89,7 @@ func wordSearchRegExHandler(c echo.Context) error {
 	searchKey := c.QueryParam("strRegEx")
 
 	var dict []Word
-	err := db.Get(&dict, "SELECT * FROM words WHERE dictionary = ", dictionaryName)
+	err := db.Get(&dict, "SELECT * FROM words WHERE dictionary = ?", dictionaryName)
 	if errors.Is(err, sql.ErrNoRows) {
 		log.Printf("no such dictionary name = '%s'\n", dictionaryName)
 	}
